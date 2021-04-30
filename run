@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# run the script via rosrun (for python scripts a simple symlink would also
+# work but using rosrun works for C++ executables as well)
+
+# See scripts/run_episode.py for arguments.
+rosrun rrc run_episode.py "$@" mp-pg

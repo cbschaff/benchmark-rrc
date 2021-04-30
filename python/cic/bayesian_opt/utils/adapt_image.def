@@ -1,0 +1,17 @@
+# Specify the name of the base image below
+Bootstrap: localimage
+From: ./production_test.sif
+
+%setup
+# cp setup.py package.xml ${SINGULARITY_ROOTFS}/
+# cp -r python ${SINGULARITY_ROOTFS}/
+
+%files
+
+%post
+    # Put commands to install additional dependencies here.
+    # Make sure everything runs automatically without human input (e.g. add
+    # `-y` to automatically say "yes" below).
+    pip install urllib3
+    python3 -m pip install gin
+    pip install gin-config

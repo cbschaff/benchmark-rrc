@@ -1,0 +1,9 @@
+{
+  "repository": "git@github.com:cbschaff/real-robot-challenge-collab.git",
+  "branch": "cleanup",
+  "email": "funk@ias.tu-darmstadt.de",
+  "git_deploy_key": "deploy_key1",
+  "episode_length": 60000,
+  "singularity_image": "production_test1.sif",
+  "group": "USER"
+}

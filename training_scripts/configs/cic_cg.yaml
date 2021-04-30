@@ -1,0 +1,8 @@
+# This is an example config for train_ppo.py that can be used to run it locally.
+logdir: logs_cic_cg
+base_config: training_scripts/configs/residual_sac.gin
+gin_bindings:
+    max_torque: 0.1
+    make_training_env.goal_difficulty: 3
+    make_training_env.state_machine: '@CICStateMachineLvl2'
+    make_training_env.residual_state: 'MoveLiftCubePrimitiveLvl2'

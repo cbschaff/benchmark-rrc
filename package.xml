@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rrc</name>
+  <version>1.0.0</version>
+  <description>
+      Catkin package for the Real Robot Challenge Submission System.
+  </description>
+
+  <maintainer email="cbschaff@ttic.edu">Chip Schaff</maintainer>
+
+  <license>BSD 3-clause</license>
+
+  <url type="website">https://real-robot-challenge.com/</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>robot_fingers</exec_depend>
+  <exec_depend>robot_interfaces</exec_depend>
+
+  <export></export>
+</package>

@@ -1,0 +1,7 @@
+{
+  "repository": "git@github.com:your_git_repo",
+  "branch": "main",
+  "email": "your@email.com",
+  "git_deploy_key": "git_deploy_key",
+  "singularity_image": "singularity_image.sif"
+}

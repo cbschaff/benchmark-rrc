@@ -1,0 +1,9 @@
+base_config: /logdir/base.gin
+gin_bindings: {NetworkParams.init_std: 1.0, ResidualSAC.action_reg_weight: 0.0, ResidualSAC.alpha: 0.2,
+  ResidualSAC.learning_starts: 20000, ResidualSAC.policy_lr: 0.0001, ResidualSAC.policy_training_start: 40000,
+  ResidualSAC.policy_update_period: 1, ResidualSAC.policy_zero_end: 40000, ResidualSAC.q_reg_weight: 0.0,
+  ResidualSAC.qf_fn: '@qf_append_fn', ResidualSAC.target_smoothing_coef: 0.0001, make_training_env.domain_randomization: false,
+  make_training_env.episode_length: 1000, make_training_env.goal_difficulty: 3, make_training_env.residual_state: MoveToGoalState,
+  make_training_env.reward_fn: gaussian_training_reward, make_training_env.state_machine: '@CPCStateMachine',
+  make_training_env.termination_fn: no_termination, max_torque: 0.05, train.maxt: 2000000}
+logdir: /logdir
