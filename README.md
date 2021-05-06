@@ -1,18 +1,10 @@
-Shared Codebase for the RRC collab.
+Benchmarking Structured Policies and Policy Optimization for Real-World Dexterous Object Manipulation
 =============================================================
 
-This repository contains the code implementation of the publication "Benchmarking Structured Policies and Policy
-Optimization for Dexterous Object Manipulation".
+This repository contains the code for the publication "Benchmarking Structured Policies and Policy
+Optimization for Real-World Dexterous Object Manipulation".
 
-This repository is structured as a catkin package and builds on the
-[example package](https://github.com/rr-learning/rrc_example_package) provided by the competition,
-and [this planning library](https://github.com/yijiangh/pybullet_planning).
-
-The paper and this repository combines the code and work from three teams that participated in the competition.
-- TTIC: [Motion Planning with Planned Grasps](http://arxiv.org/abs/2101.02842)
-- University of Washington: [Cartesian Position Control with a Triangulated Grasp](https://openreview.net/pdf?id=9tYX-lukeq)
-- TU Darmstadt: [Cartesian Impedance Control with Centered Grasps](https://openreview.net/pdf?id=JWUqwie0--W)
-
+**[arXiv](https://arxiv.org/abs/2105.02087) | [project website](https://sites.google.com/view/benchmark-rrc)**
 
 ## Quickstart
 
@@ -22,7 +14,7 @@ The paper and this repository combines the code and work from three teams that p
 
 To run the code locally, first install [Singularity](https://sylabs.io/guides/3.5/user-guide/quick_start.html)
 and download [singularity image for Phase 2](https://people.tuebingen.mpg.de/felixwidmaier/realrobotchallenge/robot_phase/singularity.html#singularity-download-image)
-from the competition. A couple extra dependencies are required to run our code. To create the required singularity image, run:
+from the Real Robot Challenge. A couple extra dependencies are required to run our code. To create the required singularity image, run:
 ```singularity build --fakeroot image.sif image.def```
 
 Use the `run_locally.sh` script to build the catkin workspace and run commands
@@ -70,3 +62,16 @@ To record or evaluate the model call the ```visualize.sh``` and ```evaluate.sh``
 
 ./training_scripts/evaluate.sh /path/to/singularity/image /path/to/log/directory -n num_episodes -t ckpt
 ```
+
+## Contributions
+
+The code is the joint work of [Niklas Funk](https://github.com/nifunk), [Charles Schaff](https://github.com/cbschaff), [Rishabh Madan](https://github.com/madan96), and [Takuma Yoneda](https://github.com/takuma-ynd).
+
+The repository is structured as a catkin package and builds on the
+[example package](https://github.com/rr-learning/rrc_example_package) provided by the Real Robot Challenge,
+and [this planning library](https://github.com/yijiangh/pybullet_planning).
+
+The paper and this repository combines the code and algorithms from three teams that participated in the Real Robot Challenge:
+- TTI-Chicago: [Motion Planning with Planned Grasps](http://arxiv.org/abs/2101.02842)
+- University of Washington: [Cartesian Position Control with a Triangulated Grasp](https://openreview.net/pdf?id=9tYX-lukeq)
+- TU Darmstadt: [Cartesian Impedance Control with Centered Grasps](https://openreview.net/pdf?id=JWUqwie0--W)
