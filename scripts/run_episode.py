@@ -8,7 +8,7 @@ from mp.utils import set_seed
 from combined_code import create_state_machine
 
 
-def _init_env(goal_pose_json, difficulty):
+def _init_env(goal_pose_dict, difficulty):
     eval_config = {
         'action_space': 'torque_and_position',
         'frameskip': 3,
@@ -22,15 +22,13 @@ def _init_env(goal_pose_json, difficulty):
     }
 
     set_seed(0)
-    goal_pose_dict = json.loads(goal_pose_json)
     env = make_env(goal_pose_dict, difficulty, **eval_config)
     return env
 
 
 def main():
     parser = argparse.ArgumentParser('args')
-    parser.add_argument('difficulty', type=int)
-    parser.add_argument('goal_pose_json', type=str)
+    parser.add_argument('goal', type=json.loads)
     parser.add_argument('method', type=str, help="The method to run. One of 'mp-pg', 'cic-cg', 'cpc-tg'")
     parser.add_argument('--residual', default=False, action='store_true',
                         help="add to use residual policies. Only compatible with difficulties 3 and 4.")
@@ -38,8 +36,10 @@ def main():
                         help="add to use BO optimized parameters.")
     args = parser.parse_args()
 
-    env = _init_env(args.goal_pose_json, args.difficulty)
-    state_machine = create_state_machine(args.difficulty, args.method, env,
+    difficulty = int(args.goal['difficulty'])
+
+    env = _init_env(args.goal['goal'], difficulty)
+    state_machine = create_state_machine(difficulty, args.method, env,
                                          args.residual, args.bo)
 
     #####################
