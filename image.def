@@ -1,6 +1,6 @@
 # Specify the name of the base image below
 Bootstrap: localimage
-From: ./realrobotchallenge_phase2.sif
+From: ./trifinger_user.sif
 
 %setup
 # cp setup.py package.xml ${SINGULARITY_ROOTFS}/
@@ -12,6 +12,9 @@ From: ./realrobotchallenge_phase2.sif
     # Put commands to install additional dependencies here.
     # Make sure everything runs automatically without human input (e.g. add
     # `-y` to automatically say "yes" below).
+
+    apt-get install -y swig
+
     python3 -m pip install torch==1.4.0 torchvision==0.5.0
     python3 -m pip install git+https://github.com/cbschaff/dl.git@91d1085b1df6cd2184214b1bcfcc7b9ee909ef41
     apt-get update && apt-get install -y ffmpeg
