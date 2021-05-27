@@ -52,7 +52,7 @@ the parameters to be optimized are set and then the experiments are launched.
 ## 4) (Optional) Only if to be run on the real system:
 - specify the github branch which contains the code inside the 'const.py' file (Variable GITHUB_BRANCH)
 - specify your credentials to submit jobs on the real system (Variables USERNAME and PWD)
-- make sure that the run script ('run') (on the top level of the repo) contains the following command: 'rosrun rrc run_episode_bo.py "$@"'
+- make sure that the run script ('run') (on the top level of the repo) contains the following command: 'ros2 run rrc run_episode_bo.py "$@"'
 (i.e. you can also simply rename the file 'run_real_bo' to 'run' as this one already contains the right command)
 
 # Actions to be executed before each experiment:

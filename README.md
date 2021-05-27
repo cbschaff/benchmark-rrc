@@ -22,7 +22,7 @@ inside the singularity image.
 For example, to run the Motion Planning with Planned Grasp (MP-PG) on a random goal of difficulty 4, use the following
 command:
 ```bash
-./run_locally.sh /path/to/singularity/image.sif rosrun rrc run_local_episode.py 4 mp-pg
+./run_locally.sh /path/to/singularity/image.sif ros2 run rrc run_local_episode.py 4 mp-pg
 ```
 
 Use ```scripts/run_local_episode.py``` to visualize all of our implemented approaches. You can run our code with and without residual models and BO optimized parameters. See ```scripts/run_local_episode.py``` for the arguments.

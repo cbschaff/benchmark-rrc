@@ -70,7 +70,7 @@ def start_process(process_list,iteration,curr_run,res_path,initial_pos_path, par
     if os.path.exists(dir):
         shutil.rmtree(dir)
 
-    process_list.append(subprocess.Popen(['./run_locally_bo.sh ' + PATH_TO_IMAGE + ' rosrun rrc run_local_episode_bo.py' + ' ' + str(DIFFICULTY_LEVEL) + ' ' +str(dir)], shell=True, cwd='../../../'))
+    process_list.append(subprocess.Popen(['./run_locally_bo.sh ' + PATH_TO_IMAGE + ' ros2 run rrc run_local_episode_bo.py' + ' ' + str(DIFFICULTY_LEVEL) + ' ' +str(dir)], shell=True, cwd='../../../'))
 
     while not(os.path.exists(dir)):
         print ("Directory not yet created -> wait")
@@ -163,7 +163,7 @@ def run_param_rollout(iter, initial_pos_path, general_path, params_path,run_eval
         for i in range(num_runs):
             specific_path = general_path + str(iter) + '_output_' + str(i) + '/'
             # use the specified function to compute the reward -> scales to sim and real system,...
-            task = subprocess.Popen([(PATH_TO_IMAGE + " rosrun robot_fingers evaluate_trajectory.py" " " + str(specific_path) + " " + str(int(SIMULATION)) + " " + EVALUATE_TRAJ )], shell=True, cwd='./utils/')
+            task = subprocess.Popen([(PATH_TO_IMAGE + " ros2 run robot_fingers evaluate_trajectory.py" " " + str(specific_path) + " " + str(int(SIMULATION)) + " " + EVALUATE_TRAJ )], shell=True, cwd='./utils/')
             while True:
                 if not (task.poll() is None):
                     break
@@ -190,7 +190,7 @@ def run_param_rollout(iter, initial_pos_path, general_path, params_path,run_eval
         i = outside_idx
         specific_path = general_path + str(iter) + '_output_' + str(i) + '/'
         # use the specified function to compute the reward -> scales to sim and real system,...
-        task = subprocess.Popen([(PATH_TO_IMAGE + " rosrun robot_fingers evaluate_trajectory.py" " " + str(
+        task = subprocess.Popen([(PATH_TO_IMAGE + " ros2 run robot_fingers evaluate_trajectory.py" " " + str(
             specific_path) + " " + str(int(SIMULATION)) + " " + EVALUATE_TRAJ)], shell=True, cwd='./utils/')
         while True:
             if not (task.poll() is None):
@@ -230,7 +230,7 @@ def check(path):
 
 
                 # use the specified function to compute the reward -> scales to sim and real system,...
-                task = subprocess.Popen([(PATH_TO_IMAGE + " rosrun robot_fingers evaluate_trajectory.py" " " + str(
+                task = subprocess.Popen([(PATH_TO_IMAGE + " ros2 run robot_fingers evaluate_trajectory.py" " " + str(
                     specific_path) + " " + str(int(SIMULATION)) + " " + EVALUATE_TRAJ)], shell=True, cwd='./utils/')
                 while True:
                     if not (task.poll() is None):

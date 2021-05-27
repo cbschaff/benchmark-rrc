@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# run the script via rosrun (for python scripts a simple symlink would also
-# work but using rosrun works for C++ executables as well)
+# run the script via ros2 run (for python scripts a simple symlink would also
+# work but using ros2 run works for C++ executables as well)
 
-rosrun rrc run_episode.py "$@"
+ros2 run rrc run_episode.py "$@"
