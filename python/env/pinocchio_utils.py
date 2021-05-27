@@ -1,4 +1,6 @@
+import os
 import numpy as np
+from ament_index_python.packages import get_package_share_directory
 
 import pinocchio
 
@@ -12,7 +14,12 @@ class PinocchioUtils:
         """
         Initializes the finger model on which control's to be performed.
         """
-        self.urdf_path = '/opt/blmc_ei/src/robot_properties_fingers/urdf/pro/trifingerpro.urdf'
+        robot_properties_path = get_package_share_directory(
+            'robot_properties_fingers'
+        )
+        self.urdf_path = os.path.join(
+            robot_properties_path, 'urdf/pro/trifingerpro.urdf'
+        )
         self.tip_link_names = [
             "finger_tip_link_0",
             "finger_tip_link_120",
