@@ -332,7 +332,7 @@ class RealRobotCubeEnv(gym.GoalEnv):
             initial_object_pose=initial_object_pose,
         )
         # use mass of real cube
-        p.changeDynamics(bodyUniqueId=self.platform.cube.block, linkIndex=-1,
+        p.changeDynamics(bodyUniqueId=self.platform.cube._object_id, linkIndex=-1,
                          physicsClientId=self.platform.simfinger._pybullet_client_id,
                          mass=CUBOID_MASS)
         # p.setTimeStep(0.001)

@@ -166,7 +166,7 @@ class RandomizedEnvWrapper(gym.Wrapper):
             self.joint_indices = self.env.platform.simfinger.pybullet_joint_indices
             self.link_indices = self.env.platform.simfinger.pybullet_link_indices
             self.client_id = self.env.platform.simfinger._pybullet_client_id
-            self.cube_id = self.env.platform.cube.block
+            self.cube_id = self.env.platform.cube._object_id
             self.first_run = False
 
         self.randomize_param()

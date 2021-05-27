@@ -10,7 +10,7 @@ class IKUtils:
         self.finger_id = env.platform.simfinger.finger_id
         self.tip_ids = env.platform.simfinger.pybullet_tip_link_indices
         self.link_ids = env.platform.simfinger.pybullet_link_indices
-        self.cube_id = env.platform.cube.block
+        self.cube_id = env.platform.cube._object_id
         self.env = env
         self.sample_fn = self._get_sample_fn()
         self.yawing_grasp = yawing_grasp

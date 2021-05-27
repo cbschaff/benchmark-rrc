@@ -83,7 +83,7 @@ def get_joint_states(robot_id, link_indices):
 def disable_tip_collisions(env):
     disabled_collisions = set()
     for tip_link in env.platform.simfinger.pybullet_tip_link_indices:
-        disabled_collisions.add(((env.platform.cube.block, -1), (env.platform.simfinger.finger_id, tip_link)))
+        disabled_collisions.add(((env.platform.cube._object_id, -1), (env.platform.simfinger.finger_id, tip_link)))
     return disabled_collisions
 
 
@@ -124,7 +124,7 @@ class WholeBodyPlanner:
     def _get_disabled_colilsions(self):
         disabled_collisions = set()
         for tip_link in self.env.platform.simfinger.pybullet_tip_link_indices:
-            disabled_collisions.add(((self.env.platform.cube.block, -1), (self.env.platform.simfinger.finger_id, tip_link)))
+            disabled_collisions.add(((self.env.platform.cube._object_id, -1), (self.env.platform.simfinger.finger_id, tip_link)))
         return disabled_collisions
 
     def get_fingers_collision_fn(self):
@@ -182,7 +182,7 @@ class WholeBodyPlanner:
                 with keep_state(self.env):
                     self.env.platform.simfinger.reset_finger_positions_and_velocities(grasp.q)
                     cube_path, joint_conf_path = plan_wholebody_motion(
-                        self.env.platform.cube.block,
+                        self.env.platform.cube._object_id,
                         dummy_links,
                         self.env.platform.simfinger.finger_id,
                         self.env.platform.simfinger.pybullet_link_indices,
@@ -264,6 +264,6 @@ if __name__ == '__main__':
             point, ori = cube_pose[:3], cube_pose[3:]
             quat = p.getQuaternionFromEuler(ori)
             for i in range(3):
-                p.resetBasePositionAndOrientation(env.platform.cube.block, point, quat)
+                p.resetBasePositionAndOrientation(env.platform.cube._object_id, point, quat)
                 env.platform.simfinger.reset_finger_positions_and_velocities(joint_conf)
                 time.sleep(0.01)

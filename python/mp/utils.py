@@ -181,7 +181,7 @@ class keep_state:
     def __init__(self, env):
         self.finger_id = env.platform.simfinger.finger_id
         self.joints = env.platform.simfinger.pybullet_link_indices
-        self.cube_id = env.platform.cube.block
+        self.cube_id = env.platform.cube._object_id
 
     def __enter__(self):
         self.state_id = p.saveState()
@@ -212,7 +212,7 @@ def set_body_state(body_id, position, orientation, velocity=None):
 
 class AssertNoStateChanges:
     def __init__(self, env):
-        self.cube_id = env.platform.cube.block
+        self.cube_id = env.platform.cube._object_id
         self.finger_id = env.platform.simfinger.finger_id
         self.finger_links = env.platform.simfinger.pybullet_link_indices
 
