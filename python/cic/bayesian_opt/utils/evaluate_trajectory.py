@@ -160,8 +160,10 @@ def compute_reward_rot_lift(logdir, simulation):
 
     if (simulation==0):
         min_length = 40000
-        log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                                 os.path.join(logdir, "camera_data.dat"))
+        log = robot_fingers.TriFingerPlatformWithObjectLog(
+            os.path.join(logdir, "robot_data.dat"),
+            os.path.join(logdir, "camera_data.dat"),
+        )
         reward = 0.0
         count = 0
         for t in range(indice, log.get_last_timeindex() + 1):
@@ -214,8 +216,10 @@ def compute_reward_rot_ground(logdir, simulation):
 
     if (simulation==0):
         min_length = 40000
-        log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                                 os.path.join(logdir, "camera_data.dat"))
+        log = robot_fingers.TriFingerPlatformWithObjectLog(
+            os.path.join(logdir, "robot_data.dat"),
+            os.path.join(logdir, "camera_data.dat"),
+        )
         reward = 0.0
         count = 0
         for t in range(indice, log.get_last_timeindex() + 1):
@@ -269,8 +273,10 @@ def compute_reward_18(logdir, simulation):
 
     if (simulation==0):
         min_length = 18000
-        log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                                 os.path.join(logdir, "camera_data.dat"))
+        log = robot_fingers.TriFingerPlatformWithObjectLog(
+            os.path.join(logdir, "robot_data.dat"),
+            os.path.join(logdir, "camera_data.dat"),
+        )
         reward = 0.0
         count = 0
         for t in range(log.get_first_timeindex(), log.get_last_timeindex() + 1):
@@ -323,8 +329,10 @@ def compute_reward_adaptive(logdir, simulation, TOTALTIMESTEPS):
 
     if (simulation==0):
         min_length = TOTALTIMESTEPS
-        log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                                 os.path.join(logdir, "camera_data.dat"))
+        log = robot_fingers.TriFingerPlatformWithObjectLog(
+            os.path.join(logdir, "robot_data.dat"),
+            os.path.join(logdir, "camera_data.dat"),
+        )
         reward = 0.0
         count = 0
         for t in range(log.get_first_timeindex(), log.get_last_timeindex() + 1):
@@ -377,8 +385,10 @@ def compute_reward_adaptive_ORIENT(logdir, simulation, TOTALTIMESTEPS):
 
     if (simulation==0):
         min_length = TOTALTIMESTEPS
-        log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                                 os.path.join(logdir, "camera_data.dat"))
+        log = robot_fingers.TriFingerPlatformWithObjectLog(
+            os.path.join(logdir, "robot_data.dat"),
+            os.path.join(logdir, "camera_data.dat"),
+        )
         reward = 0.0
         count = 0
         for t in range(log.get_first_timeindex(), log.get_last_timeindex() + 1):
@@ -432,8 +442,10 @@ def compute_reward_adaptive_behind(logdir, simulation, TOTALTIMESTEPS):
 
     if (simulation==0):
         min_length = TOTALTIMESTEPS
-        log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                                 os.path.join(logdir, "camera_data.dat"))
+        log = robot_fingers.TriFingerPlatformWithObjectLog(
+            os.path.join(logdir, "robot_data.dat"),
+            os.path.join(logdir, "camera_data.dat"),
+        )
         reward = 0.0
         count = 0
         for t in range(log.get_last_timeindex() - TOTALTIMESTEPS, log.get_last_timeindex() + 1):
@@ -482,8 +494,10 @@ def compute_reward(logdir, simulation):
                                orientation=np.array(goal['goal']['orientation']))
 
     if (simulation==0):
-        log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                                 os.path.join(logdir, "camera_data.dat"))
+        log = robot_fingers.TriFingerPlatformWithObjectLog(
+            os.path.join(logdir, "robot_data.dat"),
+            os.path.join(logdir, "camera_data.dat"),
+        )
         reward = 0.0
         for t in range(log.get_first_timeindex(), log.get_last_timeindex() + 1):
             camera_observation = log.get_camera_observation(t)

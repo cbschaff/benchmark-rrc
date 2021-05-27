@@ -310,7 +310,7 @@ class RealRobotCubeEnv(gym.GoalEnv):
                 "Once started, this environment cannot be reset."
             )
 
-        self.real_platform = robot_fingers.TriFingerPlatformFrontend()
+        self.real_platform = robot_fingers.TriFingerPlatformWithObjectFrontend()
 
     def _reset_direct_simulation(self):
         """Reset direct simulation.

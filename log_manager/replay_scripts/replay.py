@@ -223,8 +223,10 @@ class VideoRecorder:
 
 
 def get_synced_log_data(logdir, goal, difficulty):
-    log = robot_fingers.TriFingerPlatformLog(os.path.join(logdir, "robot_data.dat"),
-                                             os.path.join(logdir, "camera_data.dat"))
+    log = robot_fingers.TriFingerPlatformWithObjectLog(
+        os.path.join(logdir, "robot_data.dat"),
+        os.path.join(logdir, "camera_data.dat"),
+    )
     log_camera = tricamera.LogReader(os.path.join(logdir, "camera_data.dat"))
     stamps = log_camera.timestamps
 
