@@ -19,6 +19,24 @@ from .reward_fns import competition_reward
 from .pinocchio_utils import PinocchioUtils
 from .viz import Viz, CuboidMarker
 import time
+import copy
+
+
+# Workaround to make robot_interfaces.trifinger.Action deepcopy-able.
+def action_deepcopy(self, memo):
+    cls = self.__class__
+    cpy = cls.__new__(cls)
+    memo[id(self)] = cpy
+
+    cpy.torque = copy.deepcopy(self.torque, memo)
+    cpy.position = copy.deepcopy(self.position, memo)
+    cpy.position_kp = copy.deepcopy(self.position_kp, memo)
+    cpy.position_kd = copy.deepcopy(self.position_kd, memo)
+
+    return cpy
+
+
+robot_interfaces.trifinger.Action.__deepcopy__ = action_deepcopy
 
 
 class ActionType(enum.Enum):
