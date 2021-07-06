@@ -26,7 +26,7 @@ class IdlePrimitive(State):
         self.env = env
         self.goal_target = None
 
-        self.duration = 100 # duration of the primitive in timesteps
+        self.duration = 100*4 # duration of the primitive in timesteps
         self.DEBUG = False
         self.iter_primitive_started = -1
         self.reference = None
@@ -122,7 +122,7 @@ class InitResetPrimitive(State):
         self.env = env
         self.goal_target = None
 
-        self.duration = 150 # duration of the primitive in timesteps
+        self.duration = 150*4 # duration of the primitive in timesteps
         self.DEBUG = False
         self.iter_primitive_started = -1
         self.iteration = -1
@@ -317,7 +317,7 @@ class MoveCubeFloorPrimitive(State):
         self.pos_gain = 0.0
         self.force_factor = self.params.force_factor_floor
 
-        self.duration = 5000
+        self.duration = 5000*4
 
         self.DEBUG = False
         self.iteration = -1
@@ -432,7 +432,7 @@ class MoveCubeFloorPrimitiveLvl1(MoveCubeFloorPrimitive):
 
     def __init__(self, env, kinematics, params, object, grasp, stop_early):
         super(MoveCubeFloorPrimitiveLvl1, self).__init__(env, kinematics, params, object, grasp, stop_early)
-        self.duration = 300
+        self.duration = 300*4
 
     def is_finished(self, robot_state, cube_state, iteration):
         if (self.use_fixed_reference):
@@ -458,7 +458,7 @@ class MoveCubeFloorPrimitiveLvl4(MoveCubeFloorPrimitive):
 
     def __init__(self, env, kinematics, params, object, grasp, stop_early, use_fixed_reference=False, fixed_reference=[0,0,0]):
         super(MoveCubeFloorPrimitiveLvl4, self).__init__(env, kinematics, params, object, grasp, stop_early, use_fixed_reference=use_fixed_reference, fixed_reference=fixed_reference)
-        self.duration = 300
+        self.duration = 300*4
 
     def is_finished(self, robot_state, cube_state, iteration):
         if (self.use_fixed_reference):
@@ -520,7 +520,7 @@ class MoveLiftCubePrimitive(State):
         self.start_lift = False
 
 
-        self.duration = 5000
+        self.duration = 5000*4
 
         self.DEBUG = False
         self.iteration = -1
@@ -665,7 +665,7 @@ class MoveLiftCubePrimitiveLvl2(MoveLiftCubePrimitive):
 
     def __init__(self, env, kinematics, params, object, grasp, stop_early):
         super(MoveLiftCubePrimitiveLvl2, self).__init__(env, kinematics, params, object, grasp, stop_early)
-        self.duration = 1000
+        self.duration = 1000*4
 
     def is_finished(self, robot_state, cube_state, iteration):
         target = copy.deepcopy(cube_state[3])
@@ -695,7 +695,7 @@ class MoveLiftCubePrimitiveLvl4(MoveLiftCubePrimitive):
     def __init__(self, env, kinematics, params, object, grasp, stop_early):
         super(MoveLiftCubePrimitiveLvl4, self).__init__(env, kinematics, params, object, grasp, stop_early)
         self.switch_mode = 0.035
-        self.duration = 1000
+        self.duration = 1000*4
 
     def is_finished(self, robot_state, cube_state, iteration):
         target = copy.deepcopy(cube_state[3])
@@ -757,7 +757,7 @@ class MoveLiftCubeOrientPrimitive(State):
         self.start_moving = False
 
 
-        self.duration = 5000
+        self.duration = 5000*4
 
         self.DEBUG = False
         self.iteration = -1
@@ -973,7 +973,7 @@ class MoveLiftCubeOrientPrimitiveLvl4(MoveLiftCubeOrientPrimitive):
 
     def __init__(self, env, kinematics, params, object, grasp, stop_early):
         super(MoveLiftCubeOrientPrimitiveLvl4, self).__init__(env, kinematics, params, object, grasp, stop_early)
-        self.duration = 1000
+        self.duration = 1000*4
 
     def is_finished(self, robot_state, cube_state, iteration):
         target = copy.deepcopy(cube_state[3])
@@ -1031,7 +1031,7 @@ class RotateCubeFloorPrimitive(State):
         self.force_factor = self.params.force_factor_rotate_ground
         self.force_factor_ground_rot = self.params.force_factor_ground_rot_rotate_ground
 
-        self.duration = 5000
+        self.duration = 5000*4
 
         self.DEBUG = False
         self.iteration = -1
@@ -1194,7 +1194,7 @@ class RotateCubeFloorPrimitiveLvl4(RotateCubeFloorPrimitive):
 
     def __init__(self, env, kinematics, params, object, grasp, stop_early, use_fixed_reference=False, fixed_reference=[0,0,0], dir_rot=[0,0,0]):
         super(RotateCubeFloorPrimitiveLvl4, self).__init__(env, kinematics, params, object, grasp, stop_early, use_fixed_reference=use_fixed_reference, fixed_reference=fixed_reference, dir_rot=dir_rot)
-        self.duration = 300
+        self.duration = 300*4
 
     def is_finished(self, robot_state, cube_state, iteration):
 
@@ -1241,7 +1241,7 @@ class RotateCubeLiftPrimitive(State):
         self.target_height_rot_lift = self.params.target_height_rot_lift_rotate_lift
         self.clip_height = self.params.clip_height_rotate_lift
 
-        self.duration = 5000
+        self.duration = 5000*4
 
         self.DEBUG = False
         self.iteration = -1
@@ -1399,9 +1399,9 @@ class RotateCubeLiftPrimitiveLvl4(RotateCubeLiftPrimitive):
     def __init__(self, env, kinematics, params, object, grasp, stop_early, use_fixed_reference=False, fixed_reference=[0,0,0], dir_rot=[0,0,0]):
         super(RotateCubeLiftPrimitiveLvl4, self).__init__(env, kinematics, params, object, grasp, stop_early, use_fixed_reference=use_fixed_reference, fixed_reference=fixed_reference, dir_rot=dir_rot)
         if (self.env.simulation):
-            self.duration = 250
+            self.duration = 250*4
         else:
-            self.duration = 500
+            self.duration = 500*4
 
     def is_finished(self, robot_state, cube_state, iteration):
 

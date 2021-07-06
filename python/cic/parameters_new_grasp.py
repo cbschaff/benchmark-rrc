@@ -6,6 +6,14 @@ class CuboidParams():
         self.approach_grasp_xy = [0.1, 0.1, 0.09, 0.036195386201143265]
         self.approach_grasp_h = [0.1, 0.0, 0.0, 0.0]
         self.approach_duration = [500, 1000, 1500, 2000]
+        approach_duration_new = []
+        factor = 4
+        approach_duration_new.append(self.approach_duration[0] * factor)
+        for i in range(len(self.approach_duration) - 1):
+            approach_duration_new.append(
+                (self.approach_duration[i + 1] - self.approach_duration[i]) * factor + approach_duration_new[i])
+        print(approach_duration_new)
+        self.approach_duration = approach_duration_new
         self.approach_clip_pos = [0.03,0.03,0.03,0.015]
 
         # PARAMS FOR THE RESET PRIMITIVE
@@ -13,6 +21,13 @@ class CuboidParams():
         self.reset_grasp_h = [0.0,0.05]
         self.reset_duration = [200,400]
         self.reset_clip_pos = [0.03,0.015]
+        reset_duration_new = []
+        reset_duration_new.append(self.reset_duration[0] * factor)
+        for i in range(len(self.reset_duration) - 1):
+            reset_duration_new.append(
+                (self.reset_duration[i + 1] - self.reset_duration[i]) * factor + reset_duration_new[i])
+        print(reset_duration_new)
+        self.reset_duration = reset_duration_new
 
         # PARAMS FOR THE GRASP FLOOR PRIMITIVE:
         self.grasp_xy = -0.002748661208897829
@@ -34,12 +49,27 @@ class CubeLvl1Params():
         self.approach_grasp_h = [0.1, 0.0, 0.0, 0.0]
         self.approach_duration = [250, 500, 750, 1000]
         self.approach_clip_pos = [0.03,0.03,0.03,0.015]
+        approach_duration_new = []
+        factor = 4
+        approach_duration_new.append(self.approach_duration[0] * factor)
+        for i in range(len(self.approach_duration) - 1):
+            approach_duration_new.append(
+                (self.approach_duration[i + 1] - self.approach_duration[i]) * factor + approach_duration_new[i])
+        print(approach_duration_new)
+        self.approach_duration = approach_duration_new
 
         # PARAMS FOR THE RESET PRIMITIVE
         self.reset_grasp_xy = [0.1,0.2]
         self.reset_grasp_h = [0.0,0.05]
         self.reset_duration = [200,400]
         self.reset_clip_pos = [0.03,0.015]
+        reset_duration_new = []
+        reset_duration_new.append(self.reset_duration[0] * factor)
+        for i in range(len(self.reset_duration) - 1):
+            reset_duration_new.append(
+                (self.reset_duration[i + 1] - self.reset_duration[i]) * factor + reset_duration_new[i])
+        print(reset_duration_new)
+        self.reset_duration = reset_duration_new
 
         # PARAMS FOR THE GRASP FLOOR PRIMITIVE:
         self.grasp_xy_floor = -0.002748661208897829-0.04
@@ -65,6 +95,13 @@ class CubeLvl2Params():
         self.approach_grasp_xy = [0.15, 0.15, 0.15, 0.09, 0.05, 0.0] #0.036195386201143265
         self.approach_grasp_h = [0.15, 0.1 , 0.0, 0.0, 0.0, 0.0]
         self.approach_duration = [250, 500, 750, 850, 1100, 1250]#[500, 1000, 1500, 2000]
+        approach_duration_new = []
+        factor = 4
+        approach_duration_new.append(self.approach_duration[0]*factor)
+        for i in range(len(self.approach_duration)-1):
+            approach_duration_new.append((self.approach_duration[i+1]-self.approach_duration[i])* factor+approach_duration_new[i])
+        print (approach_duration_new)
+        self.approach_duration = approach_duration_new
         self.approach_clip_pos = [0.03,0.03,0.03,0.03,0.015,0.015]
 
         # PARAMS FOR THE RESET PRIMITIVE
@@ -72,6 +109,13 @@ class CubeLvl2Params():
         self.reset_grasp_h = [0.0,0.05]
         self.reset_duration = [200,400]
         self.reset_clip_pos = [0.03,0.015]
+        reset_duration_new = []
+        reset_duration_new.append(self.reset_duration[0] * factor)
+        for i in range(len(self.reset_duration) - 1):
+            reset_duration_new.append(
+                (self.reset_duration[i + 1] - self.reset_duration[i]) * factor + reset_duration_new[i])
+        print(reset_duration_new)
+        self.reset_duration = reset_duration_new
 
         # PARAMS FOR THE LIFT PRIMITIVE:
 
@@ -118,12 +162,27 @@ class CubeLvl4Params():
         self.approach_grasp_h = [0.15, 0.1 , 0.0, 0.0, 0.0, 0.0]
         self.approach_duration = [150, 300, 450, 600, 750, 900]#[250, 500, 750, 850, 1100, 1250]#[500, 1000, 1500, 2000]
         self.approach_clip_pos = [0.03,0.03,0.03,0.03,0.015,0.015]
+        approach_duration_new = []
+        factor = 4
+        approach_duration_new.append(self.approach_duration[0] * factor)
+        for i in range(len(self.approach_duration) - 1):
+            approach_duration_new.append(
+                (self.approach_duration[i + 1] - self.approach_duration[i]) * factor + approach_duration_new[i])
+        print(approach_duration_new)
+        self.approach_duration = approach_duration_new
 
         # PARAMS FOR THE RESET PRIMITIVE
         self.reset_grasp_xy = [0.05,0.1, 0.1, 0.1, 0.1, 0.1, 0.15]
         self.reset_grasp_h = [0.0,  0.0, 0.05,0.1, 0.15,0.2, 0.15]
         self.reset_duration = [50,  100, 150, 200, 250, 300, 350]#[200,400,600]
         self.reset_clip_pos = [0.015,0.015,0.015, 0.015,0.015, 0.03, 0.03]
+        reset_duration_new = []
+        reset_duration_new.append(self.reset_duration[0] * factor)
+        for i in range(len(self.reset_duration) - 1):
+            reset_duration_new.append(
+                (self.reset_duration[i + 1] - self.reset_duration[i]) * factor + reset_duration_new[i])
+        print(reset_duration_new)
+        self.reset_duration = reset_duration_new
 
         # # PARAMS FOR THE RESET PRIMITIVE
         # self.reset_grasp_xy = [0.1,0.2,0.2]
