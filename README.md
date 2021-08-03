@@ -6,6 +6,8 @@ Optimization for Real-World Dexterous Object Manipulation".
 
 **[arXiv](https://arxiv.org/abs/2105.02087) | [project website](https://sites.google.com/view/benchmark-rrc)**
 
+For an updated version of the code which is compatible with the 2021 RRC competion, see the [ros2](https://github.com/cbschaff/benchmark-rrc/tree/ros2) branch.
+
 ## Quickstart
 
 ### Running the code in simulation
