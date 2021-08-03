@@ -1,8 +1,12 @@
 Benchmarking Structured Policies and Policy Optimization for Real-World Dexterous Object Manipulation
 =============================================================
 
-This repository contains the code for the publication "Benchmarking Structured Policies and Policy
-Optimization for Real-World Dexterous Object Manipulation".
+This is an **updated version** of the code used for the publication
+"Benchmarking Structured Policies and Policy Optimization for Real-World
+Dexterous Object Manipulation".  It is kept up-to-date so that it can be run
+with the current version of the TriFinger robot software.  Beware that the
+behaviour of the robot may be a bit different compared to the original version
+(especially in simulation as the robot model was changed there).
 
 **[arXiv](https://arxiv.org/abs/2105.02087) | [project website](https://sites.google.com/view/benchmark-rrc)**
 
